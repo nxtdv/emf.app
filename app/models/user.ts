@@ -1,9 +1,12 @@
 import { WithPrimaryUUID } from '#models/mixins/with_primary_uuid'
 import { WithTimestamps } from '#models/mixins/with_timestamps'
+import UserProfile from '#models/user_profile'
+import UserSettings from '#models/user_settings'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasOne } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
+import type { HasOne } from '@adonisjs/lucid/types/relations'
 import type { DateTime } from 'luxon'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
@@ -59,4 +62,10 @@ export default class User extends compose(BaseModel, AuthFinder, WithPrimaryUUID
 
   @column()
   declare isAdmin: boolean
+
+  @hasOne(() => UserProfile)
+  declare profile: HasOne<typeof UserProfile>
+
+  @hasOne(() => UserSettings)
+  declare settings: HasOne<typeof UserSettings>
 }
