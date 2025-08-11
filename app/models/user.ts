@@ -40,6 +40,12 @@ export default class User extends compose(BaseModel, AuthFinder, WithPrimaryUUID
   declare isEmailVerified: boolean
 
   @column()
+  declare avatarUrl: string | null
+
+  @column()
+  declare bannerUrl: string | null
+
+  @column()
   declare lastIpAddress: string | null
 
   @column()
