@@ -10,14 +10,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuAction,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
-} from '@/components/ui/sidebar'
+  DualSidebarGroup,
+  DualSidebarGroupLabel,
+  DualSidebarMenuAction,
+  DualSidebarMenu,
+  DualSidebarMenuButton,
+  DualSidebarMenuItem,
+  useDualSidebar,
+} from '@/components/ui/dual-sidebar-provider'
 
 export function NavDocuments({
   items,
@@ -28,26 +28,29 @@ export function NavDocuments({
     icon: Icon
   }[]
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useDualSidebar()
 
   return (
-    <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Documents</SidebarGroupLabel>
-      <SidebarMenu>
+    <DualSidebarGroup className="group-data-[collapsible=icon]:hidden">
+      <DualSidebarGroupLabel>Documents</DualSidebarGroupLabel>
+      <DualSidebarMenu>
         {items.map((item) => (
-          <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton asChild>
+          <DualSidebarMenuItem key={item.name}>
+            <DualSidebarMenuButton asChild>
               <a href={item.url}>
                 <item.icon />
                 <span>{item.name}</span>
               </a>
-            </SidebarMenuButton>
+            </DualSidebarMenuButton>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <SidebarMenuAction showOnHover className="data-[state=open]:bg-accent rounded-sm">
+                <DualSidebarMenuAction
+                  showOnHover
+                  className="data-[state=open]:bg-accent rounded-sm"
+                >
                   <IconDots />
                   <span className="sr-only">More</span>
-                </SidebarMenuAction>
+                </DualSidebarMenuAction>
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 className="w-24 rounded-lg"
@@ -69,15 +72,15 @@ export function NavDocuments({
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          </SidebarMenuItem>
+          </DualSidebarMenuItem>
         ))}
-        <SidebarMenuItem>
-          <SidebarMenuButton className="text-sidebar-foreground/70">
+        <DualSidebarMenuItem>
+          <DualSidebarMenuButton className="text-sidebar-foreground/70">
             <IconDots className="text-sidebar-foreground/70" />
             <span>More</span>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
-      </SidebarMenu>
-    </SidebarGroup>
+          </DualSidebarMenuButton>
+        </DualSidebarMenuItem>
+      </DualSidebarMenu>
+    </DualSidebarGroup>
   )
 }

@@ -148,7 +148,7 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof DualSidebar>) {
+export function AppRightSidebar({ ...props }: React.ComponentProps<typeof DualSidebar>) {
   return (
     <DualSidebar collapsible="offcanvas" {...props}>
       <DualSidebarHeader>

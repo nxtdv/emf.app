@@ -2,12 +2,12 @@ import { IconCirclePlusFilled, IconMail, type Icon } from '@tabler/icons-react'
 
 import { Button } from '@/components/ui/button'
 import {
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from '@/components/ui/sidebar'
+  DualSidebarGroup,
+  DualSidebarGroupContent,
+  DualSidebarMenu,
+  DualSidebarMenuButton,
+  DualSidebarMenuItem,
+} from '@/components/ui/dual-sidebar-provider'
 
 export function NavMain({
   items,
@@ -19,17 +19,17 @@ export function NavMain({
   }[]
 }) {
   return (
-    <SidebarGroup>
-      <SidebarGroupContent className="flex flex-col gap-2">
-        <SidebarMenu>
-          <SidebarMenuItem className="flex items-center gap-2">
-            <SidebarMenuButton
+    <DualSidebarGroup>
+      <DualSidebarGroupContent className="flex flex-col gap-2">
+        <DualSidebarMenu>
+          <DualSidebarMenuItem className="flex items-center gap-2">
+            <DualSidebarMenuButton
               tooltip="Quick Create"
               className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
             >
               <IconCirclePlusFilled />
               <span>Quick Create</span>
-            </SidebarMenuButton>
+            </DualSidebarMenuButton>
             <Button
               size="icon"
               className="size-8 group-data-[collapsible=icon]:opacity-0"
@@ -38,19 +38,19 @@ export function NavMain({
               <IconMail />
               <span className="sr-only">Inbox</span>
             </Button>
-          </SidebarMenuItem>
-        </SidebarMenu>
-        <SidebarMenu>
+          </DualSidebarMenuItem>
+        </DualSidebarMenu>
+        <DualSidebarMenu>
           {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton tooltip={item.title}>
+            <DualSidebarMenuItem key={item.title}>
+              <DualSidebarMenuButton tooltip={item.title}>
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+              </DualSidebarMenuButton>
+            </DualSidebarMenuItem>
           ))}
-        </SidebarMenu>
-      </SidebarGroupContent>
-    </SidebarGroup>
+        </DualSidebarMenu>
+      </DualSidebarGroupContent>
+    </DualSidebarGroup>
   )
 }

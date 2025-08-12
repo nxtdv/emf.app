@@ -17,11 +17,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
-} from '@/components/ui/sidebar'
+  DualSidebarMenu,
+  DualSidebarMenuButton,
+  DualSidebarMenuItem,
+  useDualSidebar,
+} from '@/components/ui/dual-sidebar-provider'
 
 export function NavUser({
   user,
@@ -32,14 +32,14 @@ export function NavUser({
     avatar: string
   }
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useDualSidebar()
 
   return (
-    <SidebarMenu>
-      <SidebarMenuItem>
+    <DualSidebarMenu>
+      <DualSidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
+            <DualSidebarMenuButton
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
@@ -52,7 +52,7 @@ export function NavUser({
                 <span className="text-muted-foreground truncate text-xs">{user.email}</span>
               </div>
               <IconDotsVertical className="ml-auto size-4" />
-            </SidebarMenuButton>
+            </DualSidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
@@ -94,7 +94,7 @@ export function NavUser({
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      </SidebarMenuItem>
-    </SidebarMenu>
+      </DualSidebarMenuItem>
+    </DualSidebarMenu>
   )
 }

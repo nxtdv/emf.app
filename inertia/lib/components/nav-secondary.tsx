@@ -4,12 +4,12 @@ import * as React from 'react'
 import { type Icon } from '@tabler/icons-react'
 
 import {
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from '@/components/ui/sidebar'
+  DualSidebarGroup,
+  DualSidebarContent,
+  DualSidebarMenu,
+  DualSidebarMenuButton,
+  DualSidebarMenuItem,
+} from '@/components/ui/dual-sidebar-provider'
 
 export function NavSecondary({
   items,
@@ -20,23 +20,23 @@ export function NavSecondary({
     url: string
     icon: Icon
   }[]
-} & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
+} & React.ComponentPropsWithoutRef<typeof DualSidebarGroup>) {
   return (
-    <SidebarGroup {...props}>
-      <SidebarGroupContent>
-        <SidebarMenu>
+    <DualSidebarGroup {...props}>
+      <DualSidebarContent>
+        <DualSidebarMenu>
           {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild>
+            <DualSidebarMenuItem key={item.title}>
+              <DualSidebarMenuButton asChild>
                 <a href={item.url}>
                   <item.icon />
                   <span>{item.title}</span>
                 </a>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+              </DualSidebarMenuButton>
+            </DualSidebarMenuItem>
           ))}
-        </SidebarMenu>
-      </SidebarGroupContent>
-    </SidebarGroup>
+        </DualSidebarMenu>
+      </DualSidebarContent>
+    </DualSidebarGroup>
   )
 }
