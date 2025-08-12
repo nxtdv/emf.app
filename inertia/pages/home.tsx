@@ -1,5 +1,5 @@
 import { AppRightSidebar } from '@/components/app-right-sidebar'
-import { AppSidebar } from '@/components/app-sidebar'
+import { AppLeftSidebar } from '@/components/app-left-sidebar'
 import { ChartAreaInteractive } from '@/components/chart-area-interactive'
 import { SectionCards } from '@/components/section-cards'
 import { SiteHeader } from '@/components/site-header'
@@ -13,6 +13,8 @@ export default function Home() {
       <Head title="Homepage" />
 
       <DualSidebarProvider
+        defaultLeftOpen={true}
+        defaultRightOpen={false}
         style={
           {
             '--sidebar-width': 'calc(var(--spacing) * 72)',
@@ -20,9 +22,9 @@ export default function Home() {
           } as React.CSSProperties
         }
       >
-        <AppSidebar side="left" variant="inset" />
+        <AppLeftSidebar side="left" variant="inset" collapsible="offcanvas" />
         <DualSidebarInset>
-          <SiteHeader />
+          <SiteHeader title="Homepage" />
           <div className="flex flex-1 flex-col">
             <div className="@container/main flex flex-1 flex-col gap-2">
               <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
@@ -41,7 +43,7 @@ export default function Home() {
             </div>
           </div>
         </DualSidebarInset>
-        <AppRightSidebar side="right" variant="inset" />
+        <AppRightSidebar side="right" variant="inset" collapsible="icon" />
       </DualSidebarProvider>
     </>
   )

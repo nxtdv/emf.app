@@ -9,7 +9,6 @@ import {
   IconFileWord,
   IconFolder,
   IconHelp,
-  IconInnerShadowTop,
   IconListDetails,
   IconReport,
   IconSearch,
@@ -148,16 +147,22 @@ const data = {
   ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof DualSidebar>) {
+export function AppLeftSidebar({ ...props }: React.ComponentProps<typeof DualSidebar>) {
   return (
-    <DualSidebar collapsible="offcanvas" {...props}>
+    <DualSidebar {...props}>
       <DualSidebarHeader>
         <DualSidebarMenu>
           <DualSidebarMenuItem>
             <DualSidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
-              <a href="#">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+              <a href="#" className="flex items-center gap-2">
+                <div className="relative">
+                  <img src="/images/MxGR_Black.png" alt="Logo" className="h-6 w-auto dark:hidden" />
+                  <img
+                    src="/images/MxGR_White.png"
+                    alt="Logo"
+                    className="h-6 w-auto hidden dark:block"
+                  />
+                </div>
               </a>
             </DualSidebarMenuButton>
           </DualSidebarMenuItem>
