@@ -1,6 +1,5 @@
-import { IconCirclePlusFilled, IconMail, type Icon } from '@tabler/icons-react'
+import { IconCirclePlusFilled, type Icon, IconUsersGroup } from '@tabler/icons-react'
 
-import { Button } from '@/components/ui/button'
 import {
   DualSidebarGroup,
   DualSidebarGroupContent,
@@ -19,28 +18,9 @@ export function NavMain({
   }[]
 }) {
   return (
-    <DualSidebarGroup>
+    <DualSidebarGroup className="group-data-[collapsible=icon]:p-0 p-2">
       <DualSidebarGroupContent className="flex flex-col gap-2">
-        <DualSidebarMenu>
-          <DualSidebarMenuItem className="flex items-center gap-2">
-            <DualSidebarMenuButton
-              tooltip="Quick Create"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
-            >
-              <IconCirclePlusFilled />
-              <span>Quick Create</span>
-            </DualSidebarMenuButton>
-            <Button
-              size="icon"
-              className="size-8 group-data-[collapsible=icon]:opacity-0"
-              variant="outline"
-            >
-              <IconMail />
-              <span className="sr-only">Inbox</span>
-            </Button>
-          </DualSidebarMenuItem>
-        </DualSidebarMenu>
-        <DualSidebarMenu>
+        <DualSidebarMenu className="p-0 group-data-[collapsible=icon]:p-2">
           {items.map((item) => (
             <DualSidebarMenuItem key={item.title}>
               <DualSidebarMenuButton tooltip={item.title}>
@@ -49,6 +29,27 @@ export function NavMain({
               </DualSidebarMenuButton>
             </DualSidebarMenuItem>
           ))}
+        </DualSidebarMenu>
+
+        <DualSidebarMenu className="bg-secondary text-secondary-foreground rounded-lg p-2 group-data-[collapsible=icon]:p-2">
+          <DualSidebarMenuItem className="flex items-center gap-2">
+            <DualSidebarMenuButton
+              tooltip="Create Party"
+              className="active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
+            >
+              <IconUsersGroup />
+              <span>Create Party</span>
+            </DualSidebarMenuButton>
+          </DualSidebarMenuItem>
+          <DualSidebarMenuItem className="flex items-center gap-2">
+            <DualSidebarMenuButton
+              tooltip="Invite Party"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
+            >
+              <IconCirclePlusFilled />
+              <span>Invite Party</span>
+            </DualSidebarMenuButton>
+          </DualSidebarMenuItem>
         </DualSidebarMenu>
       </DualSidebarGroupContent>
     </DualSidebarGroup>

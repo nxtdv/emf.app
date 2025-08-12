@@ -1,15 +1,13 @@
 import * as React from 'react'
-import {
-  IconChartBar,
-  IconDashboard,
-  IconFolder,
-  IconListDetails,
-  IconUsers,
-} from '@tabler/icons-react'
+import { IconUsers, IconTournament, IconMessage, IconBell } from '@tabler/icons-react'
 
 import { NavMain } from '@/components/nav-main'
 import { NavUser } from '@/components/nav-user'
-import { DualSidebar, DualSidebarContent } from '@/components/ui/dual-sidebar-provider'
+import {
+  DualSidebar,
+  DualSidebarContent,
+  DualSidebarRail,
+} from '@/components/ui/dual-sidebar-provider'
 
 const data = {
   user: {
@@ -19,29 +17,24 @@ const data = {
   },
   navMain: [
     {
-      title: 'Dashboard',
+      title: 'Matches',
       url: '#',
-      icon: IconDashboard,
+      icon: IconTournament,
     },
     {
-      title: 'Lifecycle',
+      title: 'Notifications',
       url: '#',
-      icon: IconListDetails,
+      icon: IconBell,
     },
     {
-      title: 'Analytics',
-      url: '#',
-      icon: IconChartBar,
-    },
-    {
-      title: 'Projects',
-      url: '#',
-      icon: IconFolder,
-    },
-    {
-      title: 'Team',
+      title: 'Friends',
       url: '#',
       icon: IconUsers,
+    },
+    {
+      title: 'Messages',
+      url: '#',
+      icon: IconMessage,
     },
   ],
 }
@@ -53,6 +46,7 @@ export function AppRightSidebar({ ...props }: React.ComponentProps<typeof DualSi
         <NavUser user={data.user} />
         <NavMain items={data.navMain} />
       </DualSidebarContent>
+      <DualSidebarRail side="right" />
     </DualSidebar>
   )
 }
