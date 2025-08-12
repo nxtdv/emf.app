@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { type Icon, IconPlus } from '@tabler/icons-react'
+import { type Icon } from '@tabler/icons-react'
 
 import {
   DualSidebarGroup,
@@ -11,7 +11,7 @@ import {
   DualSidebarMenuItem,
 } from '@/components/ui/dual-sidebar-provider'
 
-export function NavSecondary({
+export function NavFooter({
   items,
   ...props
 }: {
@@ -35,17 +35,6 @@ export function NavSecondary({
               </DualSidebarMenuButton>
             </DualSidebarMenuItem>
           ))}
-        </DualSidebarMenu>
-        <DualSidebarMenu>
-          <DualSidebarMenuItem className="flex items-center gap-2">
-            <DualSidebarMenuButton
-              tooltip="Create a Club"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
-            >
-              <IconPlus />
-              <span>Create a Club</span>
-            </DualSidebarMenuButton>
-          </DualSidebarMenuItem>
         </DualSidebarMenu>
       </DualSidebarContent>
     </DualSidebarGroup>

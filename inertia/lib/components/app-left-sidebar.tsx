@@ -1,23 +1,18 @@
+import { NavFooter } from '@/components/nav-footer'
+import { NavPrimary } from '@/components/nav-primary'
+import { Separator } from '@/components/ui/separator'
 import * as React from 'react'
 import {
   IconCamera,
   IconChartBar,
+  IconCrosshair,
   IconDashboard,
-  IconDatabase,
-  IconFileAi,
-  IconFileDescription,
-  IconFileWord,
-  IconFolder,
-  IconHelp,
   IconListDetails,
-  IconReport,
-  IconSearch,
-  IconSettings,
-  IconUsers,
+  IconPlayerPlay,
+  IconShoppingBag,
+  IconSparkles,
 } from '@tabler/icons-react'
 
-import { NavDocuments } from '@/components/nav-documents'
-import { NavMain } from '@/components/nav-main'
 import { NavSecondary } from '@/components/nav-secondary'
 import {
   DualSidebar,
@@ -30,118 +25,55 @@ import {
 } from '@/components/ui/dual-sidebar-provider'
 
 const data = {
-  user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
-  },
   navMain: [
     {
-      title: 'Dashboard',
+      title: 'Party Finder',
       url: '#',
       icon: IconDashboard,
     },
     {
-      title: 'Lifecycle',
+      title: 'Play',
       url: '#',
-      icon: IconListDetails,
+      icon: IconPlayerPlay,
     },
     {
-      title: 'Analytics',
+      title: 'Rank',
       url: '#',
       icon: IconChartBar,
     },
     {
-      title: 'Projects',
+      title: 'Watch',
       url: '#',
-      icon: IconFolder,
-    },
-    {
-      title: 'Team',
-      url: '#',
-      icon: IconUsers,
-    },
-  ],
-  navClouds: [
-    {
-      title: 'Capture',
       icon: IconCamera,
-      isActive: true,
-      url: '#',
-      items: [
-        {
-          title: 'Active Proposals',
-          url: '#',
-        },
-        {
-          title: 'Archived',
-          url: '#',
-        },
-      ],
     },
     {
-      title: 'Proposal',
-      icon: IconFileDescription,
+      title: 'Feed',
       url: '#',
-      items: [
-        {
-          title: 'Active Proposals',
-          url: '#',
-        },
-        {
-          title: 'Archived',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Prompts',
-      icon: IconFileAi,
-      url: '#',
-      items: [
-        {
-          title: 'Active Proposals',
-          url: '#',
-        },
-        {
-          title: 'Archived',
-          url: '#',
-        },
-      ],
+      icon: IconListDetails,
     },
   ],
   navSecondary: [
     {
-      title: 'Settings',
+      title: 'Clubs',
       url: '#',
-      icon: IconSettings,
-    },
-    {
-      title: 'Get Help',
-      url: '#',
-      icon: IconHelp,
-    },
-    {
-      title: 'Search',
-      url: '#',
-      icon: IconSearch,
+      icon: IconDashboard,
     },
   ],
-  documents: [
+  navFooter: [
     {
-      name: 'Data Library',
+      title: 'Missions',
       url: '#',
-      icon: IconDatabase,
+      icon: IconCrosshair,
     },
     {
-      name: 'Reports',
+      title: 'Shop',
       url: '#',
-      icon: IconReport,
+      icon: IconShoppingBag,
     },
     {
-      name: 'Word Assistant',
+      title: 'Upgrade',
       url: '#',
-      icon: IconFileWord,
+      icon: IconSparkles,
     },
   ],
 }
@@ -168,11 +100,12 @@ export function AppLeftSidebar({ ...props }: React.ComponentProps<typeof DualSid
         </DualSidebarMenu>
       </DualSidebarHeader>
       <DualSidebarContent>
-        <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
+        <NavPrimary items={data.navMain} />
+        <Separator className="my-2" />
+        <NavSecondary items={data.navSecondary} />
       </DualSidebarContent>
       <DualSidebarFooter>
-        <NavSecondary items={data.navSecondary} />
+        <NavFooter items={data.navFooter} />
       </DualSidebarFooter>
     </DualSidebar>
   )
