@@ -43,11 +43,11 @@ export function NavMain({
           </DualSidebarMenuItem>
           <DualSidebarMenuItem className="flex items-center gap-2">
             <DualSidebarMenuButton
-              tooltip="Invite Party"
+              tooltip="Invite Players"
               className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
             >
               <IconCirclePlusFilled />
-              <span>Invite Party</span>
+              <span>Invite Players</span>
             </DualSidebarMenuButton>
           </DualSidebarMenuItem>
         </DualSidebarMenu>
