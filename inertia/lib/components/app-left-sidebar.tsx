@@ -19,7 +19,6 @@ import {
 import { NavDocuments } from '@/components/nav-documents'
 import { NavMain } from '@/components/nav-main'
 import { NavSecondary } from '@/components/nav-secondary'
-import { NavUser } from '@/components/nav-user'
 import {
   DualSidebar,
   DualSidebarContent,
@@ -171,10 +170,9 @@ export function AppLeftSidebar({ ...props }: React.ComponentProps<typeof DualSid
       <DualSidebarContent>
         <NavMain items={data.navMain} />
         <NavDocuments items={data.documents} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
       </DualSidebarContent>
       <DualSidebarFooter>
-        <NavUser user={data.user} />
+        <NavSecondary items={data.navSecondary} />
       </DualSidebarFooter>
     </DualSidebar>
   )

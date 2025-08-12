@@ -378,12 +378,17 @@ function DualSidebarRail({
 }
 
 function DualSidebarInset({ className, ...props }: React.ComponentProps<'main'>) {
+  const { leftSidebar, rightSidebar } = useDualSidebar()
+
   return (
     <main
       data-slot="dual-sidebar-inset"
+      data-left-sidebar-state={leftSidebar.state}
+      data-right-sidebar-state={rightSidebar.state}
       className={cn(
         'bg-background relative flex w-full flex-1 flex-col',
-        'md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2',
+        'md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:mr-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm',
+        'md:peer-data-[variant=inset]:data-[right-sidebar-state=collapsed]:mr-1',
         className
       )}
       {...props}
@@ -418,7 +423,7 @@ function DualSidebarFooter({ className, ...props }: React.ComponentProps<'div'>)
     <div
       data-slot="dual-sidebar-footer"
       data-sidebar="footer"
-      className={cn('flex flex-col gap-2 p-2', className)}
+      className={cn('flex flex-col gap-2', className)}
       {...props}
     />
   )

@@ -3,11 +3,7 @@ import { IconUsers, IconTournament, IconMessage, IconBell } from '@tabler/icons-
 
 import { NavMain } from '@/components/nav-main'
 import { NavUser } from '@/components/nav-user'
-import {
-  DualSidebar,
-  DualSidebarContent,
-  DualSidebarRail,
-} from '@/components/ui/dual-sidebar-provider'
+import { DualSidebar, DualSidebarContent } from '@/components/ui/dual-sidebar-provider'
 
 const data = {
   user: {
@@ -46,7 +42,6 @@ export function AppRightSidebar({ ...props }: React.ComponentProps<typeof DualSi
         <NavUser user={data.user} />
         <NavMain items={data.navMain} />
       </DualSidebarContent>
-      <DualSidebarRail side="right" />
     </DualSidebar>
   )
 }
