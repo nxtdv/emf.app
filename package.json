@@ -29,7 +29,8 @@
     "#database/*": "./database/*.js",
     "#tests/*": "./tests/*.js",
     "#start/*": "./start/*.js",
-    "#config/*": "./config/*.js"
+    "#config/*": "./config/*.js",
+    "#helpers/*": "./app/helpers/*.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^7.8.2",
@@ -74,6 +75,7 @@
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-popover": "^1.1.14",
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
@@ -87,12 +89,15 @@
     "@vinejs/vine": "^3.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.1.0",
     "edge.js": "^6.2.1",
     "lucide-react": "^0.539.0",
     "luxon": "^3.7.1",
     "next-themes": "^0.4.6",
     "pg": "^8.16.3",
     "react": "^19.1.1",
+    "react-day-picker": "^9.8.1",
     "react-dom": "^19.1.1",
     "recharts": "2.15.4",
     "reflect-metadata": "^0.2.2",
