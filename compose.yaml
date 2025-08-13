@@ -3,11 +3,11 @@ services:
     image: postgres:15
     restart: always
     environment:
-      POSTGRES_DB: root
+      POSTGRES_DB: emf
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - '5432:5432'
 
@@ -31,3 +31,7 @@ services:
     ports:
       - '6379:6379'
     restart: always
+
+volumes:
+  postgres_data:
+  redis_data:
